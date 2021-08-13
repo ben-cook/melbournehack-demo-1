@@ -15,6 +15,10 @@ function App() {
     setItems([...items, item]);
   };
 
+  const removeItem = (itemToRemove) => {
+    setItems(items.filter((item) => item !== itemToRemove));
+  };
+
   const [inputValue, setInputValue] = useState("");
 
   return (
@@ -22,7 +26,7 @@ function App() {
       <div>
         <ul>
           {items.map((item) => (
-            <li>{item}</li>
+            <li onClick={() => removeItem(item)}>{item}</li>
           ))}
         </ul>
         <p>You have {items.length} items in your shopping list</p>
