@@ -11,6 +11,12 @@ function App() {
     "Fruit",
   ]);
 
+  const addItem = (item) => {
+    setItems([...items, item]);
+  };
+
+  const [inputValue, setInputValue] = useState("");
+
   return (
     <div className="App">
       <div>
@@ -20,8 +26,8 @@ function App() {
           ))}
         </ul>
         <p>You have {items.length} items in your shopping list</p>
-        <input></input>
-        <button>Add item</button>
+        <input onChange={(event) => setInputValue(event.target.value)} />
+        <button onClick={() => addItem(inputValue)}>Add item</button>
       </div>
     </div>
   );
